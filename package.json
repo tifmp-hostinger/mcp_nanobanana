@@ -1,0 +1,15 @@
+{
+  "name": "cowork-image-mcp",
+  "version": "1.0.0",
+  "description": "MCP HTTP Streamable generico para gerar imagens em qualquer proporcao (Gemini 2.5 Flash Image), com OAuth 2.1 integrado. Pronto para EasyPanel e Claude/Cowork.",
+  "type": "module",
+  "scripts": { "start": "node server.mjs" },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.10.0",
+    "express": "^4.21.2",
+    "jose": "^5.9.6",
+    "sharp": "^0.33.5",
+    "zod": "^3.23.8"
+  },
+  "engines": { "node": ">=18" }
+}
