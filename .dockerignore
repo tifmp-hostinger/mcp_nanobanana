@@ -1,0 +1,9 @@
+node_modules
+*.log
+.env
+imagens-geradas
+oauth-data
+.git
+.gitignore
+.DS_Store
+test-oauth.mjs
