@@ -1,0 +1,10 @@
+node_modules
+npm-debug.log
+*.log
+.env
+fundos-gerados
+server_test.mjs
+test-client.mjs
+.git
+.gitignore
+.DS_Store
