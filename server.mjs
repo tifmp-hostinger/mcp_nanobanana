@@ -184,14 +184,15 @@ app.use("/files", express.static(OUT_DIR, { maxAge: "1h" }));
 // Healthcheck para o EasyPanel
 app.get("/health", (_req, res) => res.json({ ok: true, model: MODEL }));
 
+
 function autorizado(req) {
-  if (!ACCESS_TOKEN) return true; // sem token → aberto (NÃO recomendado em produção)
+  if (!ACCESS_TOKEN) return true;
   const h = req.get("authorization") || "";
   const bearer = h.startsWith("Bearer ") ? h.slice(7).trim() : "";
   const alt = req.get("x-api-key") || "";
-  return bearer === ACCESS_TOKEN || alt === ACCESS_TOKEN;
+  const q = (req.query.token || req.query.key || "").toString();
+  return bearer === ACCESS_TOKEN || alt === ACCESS_TOKEN || q === ACCESS_TOKEN;
 }
-
 function baseUrlDe(req) {
   return (process.env.PUBLIC_BASE_URL || `${req.protocol}://${req.get("host")}`).replace(/\/+$/, "");
 }
